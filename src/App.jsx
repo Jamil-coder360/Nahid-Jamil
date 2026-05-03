@@ -8,6 +8,7 @@ import Projects from './component/Projects';
 import Education from './component/Education';
 import Contact from './component/Contact';
 import CursorFollower from './component/CursorFollower';
+import AnimatedBackground from './component/AnimatedBackground';
 
 function App() {
   useEffect(() => {
@@ -30,15 +31,8 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-[#0a0a14] text-white overflow-x-hidden cursor-none min-h-screen">
-      {/* Enhanced Animated Background Orbs */}
-      <div className="orb orb-1" />
-      <div className="orb orb-2" />
-      <div className="orb orb-3" />
-      <div className="orb orb-4" />
-      <div className="orb orb-5" />
-      <div className="orb orb-6" />
-      <div className="orb orb-7" />
+    <div className="bg-transparent text-white overflow-x-hidden cursor-none min-h-screen">
+      <AnimatedBackground />
 
       <CursorFollower />
       <Navbar />

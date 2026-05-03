@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
-
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { toast } from 'react-toastify';
 const contacts = [
   { label: 'Email',    value: 'your@email.com' },
   { label: 'GitHub',   value: 'github.com/username' },
@@ -40,6 +42,27 @@ const contactVariants = {
 };
 
 export default function Contact() {
+
+  const form = useRef();
+const sendEmail = (e) => {
+  e.preventDefault();
+
+  emailjs
+    .sendForm(
+      "service_4r19exx",
+      "template_qw80g2e",
+      form.current,
+      "8Nm_DgWh1d9CzcqKu"
+    )
+    .then(() => {
+      toast.success("Message sent successfully!");
+      form.current.reset();
+    })
+    .catch((error) => {
+      console.error(error);
+      toast.warning("Failed to send message.");
+    });
+};
   // Predefined delays for animation staggering
   const contactDelays = [0, 0.5, 1, 1.5];
   return (
@@ -156,12 +179,13 @@ export default function Contact() {
             </p>
           </div>
           
-          <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+          <form className="space-y-6" ref={form} onSubmit={sendEmail}>
             <div className="grid sm:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <label htmlFor="name" className="text-sm text-white/60 font-medium">Your Name</label>
                 <input 
                   type="text" 
+                  name='user_name'
                   id="name" 
                   className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-emerald-400/50 focus:bg-white/10 transition-all duration-300"
                   placeholder="John Doe"
@@ -170,6 +194,7 @@ export default function Contact() {
               <div className="space-y-2">
                 <label htmlFor="email" className="text-sm text-white/60 font-medium">Your Email</label>
                 <input 
+                name='user_email'
                   type="email" 
                   id="email" 
                   className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-emerald-400/50 focus:bg-white/10 transition-all duration-300"
@@ -182,6 +207,7 @@ export default function Contact() {
               <label htmlFor="subject" className="text-sm text-white/60 font-medium">Subject</label>
               <input 
                 type="text" 
+                name='subject'
                 id="subject" 
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-emerald-400/50 focus:bg-white/10 transition-all duration-300"
                 placeholder="Project Inquiry"
@@ -192,6 +218,7 @@ export default function Contact() {
               <label htmlFor="message" className="text-sm text-white/60 font-medium">Message</label>
               <textarea 
                 id="message" 
+                name='message'
                 rows="5"
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-emerald-400/50 focus:bg-white/10 transition-all duration-300 resize-none"
                 placeholder="Tell me about your project..."
