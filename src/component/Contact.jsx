@@ -139,31 +139,80 @@ export default function Contact() {
           ))}
         </motion.div>
 
-        {/* CTA Button */}
+        {/* Contact Form */}
         <motion.div
-          className="mt-16 pt-12 border-t border-white/10"
+          className="mt-20 pt-16 border-t border-white/10 grid lg:grid-cols-2 gap-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.6, duration: 0.6 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
         >
-          <p className="text-white/60 mb-6 text-lg">
-            Have a question or want to collaborate?
-          </p>
-          <motion.a
-            href="mailto:your@email.com"
-            className="inline-block px-8 py-4 bg-white text-[#0a0a14] font-syne font-bold text-lg rounded-lg overflow-hidden relative group"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <motion.span
-              className="absolute inset-0 bg-emerald-400 -z-10"
-              initial={{ scaleX: 0 }}
-              whileHover={{ scaleX: 1 }}
-              transition={{ duration: 0.4 }}
-            />
-            Send me an email
-          </motion.a>
+          <div>
+            <h3 className="font-syne font-bold text-3xl text-white mb-6">
+              Send a Message
+            </h3>
+            <p className="text-white/60 mb-8 text-lg leading-relaxed max-w-md">
+              Have a question or want to collaborate? Fill out the form and I'll get back to you as soon as possible.
+            </p>
+          </div>
+          
+          <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+            <div className="grid sm:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label htmlFor="name" className="text-sm text-white/60 font-medium">Your Name</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-emerald-400/50 focus:bg-white/10 transition-all duration-300"
+                  placeholder="John Doe"
+                />
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="email" className="text-sm text-white/60 font-medium">Your Email</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-emerald-400/50 focus:bg-white/10 transition-all duration-300"
+                  placeholder="john@example.com"
+                />
+              </div>
+            </div>
+            
+            <div className="space-y-2">
+              <label htmlFor="subject" className="text-sm text-white/60 font-medium">Subject</label>
+              <input 
+                type="text" 
+                id="subject" 
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-emerald-400/50 focus:bg-white/10 transition-all duration-300"
+                placeholder="Project Inquiry"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label htmlFor="message" className="text-sm text-white/60 font-medium">Message</label>
+              <textarea 
+                id="message" 
+                rows="5"
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-emerald-400/50 focus:bg-white/10 transition-all duration-300 resize-none"
+                placeholder="Tell me about your project..."
+              ></textarea>
+            </div>
+
+            <motion.button
+              type="submit"
+              className="w-full sm:w-auto px-8 py-4 bg-emerald-500 text-[#0a0a14] font-syne font-bold text-lg rounded-xl overflow-hidden relative group hover:bg-emerald-400 transition-colors"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <span className="flex items-center justify-center gap-2">
+                Send Message
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </span>
+            </motion.button>
+          </form>
         </motion.div>
       </motion.div>
     </motion.section>
