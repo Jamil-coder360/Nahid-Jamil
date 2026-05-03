@@ -50,7 +50,7 @@ export default function Projects() {
   return (
     <motion.section 
       id="projects" 
-      className="relative z-10 w-full py-20 max-w-6xl mx-auto px-6 md:px-12"
+      className="relative z-10 w-full py-20"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, margin: '-100px' }}

@@ -45,18 +45,20 @@ function App() {
 
       <AnimatePresence mode="wait">
         <main>
-          <Hero />
-          <About />
-          <Skills />
-          <Projects />
-          <Education />
-          <Contact />
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <Hero />
+            <About />
+            <Skills />
+            <Projects />
+            <Education />
+            <Contact />
+          </div>
         </main>
       </AnimatePresence>
 
       {/* Gorgeous Footer */}
       <footer className="relative z-10 bg-gradient-to-t from-black/50 to-transparent border-t border-white/5">
-        <div className="max-w-5xl mx-auto px-6 md:px-12 py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <div className="space-y-4">
               <h3 className="font-syne font-bold text-xl text-white">Nahid Jamil</h3>

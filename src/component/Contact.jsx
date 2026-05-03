@@ -51,7 +51,7 @@ export default function Contact() {
       viewport={{ once: true, margin: '-100px' }}
       transition={{ duration: 0.8 }}
     >
-      <motion.div className="max-w-5xl mx-auto px-6 md:px-12 border-t border-white/10 pt-16 pb-20">
+      <motion.div className="w-full border-t border-white/10 pt-16 pb-20">
         <motion.div
           initial={{ opacity: 0, width: 0 }}
           whileInView={{ opacity: 1, width: 'auto' }}

@@ -47,7 +47,7 @@ export default function Hero() {
   return (
     <section className="relative z-10 w-full">
       <motion.div
-        className="max-w-5xl mx-auto px-6 md:px-12 pt-20 pb-24"
+        className="w-full pt-20 pb-24"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
