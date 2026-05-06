@@ -3,9 +3,9 @@ import { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { toast } from 'react-toastify';
 const contacts = [
-  { label: 'Email',    value: 'your@email.com' },
-  { label: 'GitHub',   value: 'github.com/username' },
-  { label: 'LinkedIn', value: 'linkedin.com/in/username' },
+  { label: 'Email',    value: 'jamil595nhj@gmail.com' },
+  { label: 'GitHub',   value: 'https://github.com/Jamil-coder360' },
+  { label: 'LinkedIn', value: 'https://www.linkedin.com/in/md-nahid-hasan-jamil-a21086386' },
   { label: 'Location', value: 'Panchagarh, Bangladesh' },
 ];
 
@@ -144,12 +144,13 @@ const sendEmail = (e) => {
                 {c.label}
               </motion.p>
 
-              <motion.p 
+              <motion.a 
                 className="text-base font-semibold text-white break-all group-hover:text-emerald-300 transition-colors"
                 whileHover={{ color: '#10b981' }}
+                href={c.value}
               >
                 {c.value}
-              </motion.p>
+              </motion.a>
 
               {/* Hover effect line */}
               <motion.div
