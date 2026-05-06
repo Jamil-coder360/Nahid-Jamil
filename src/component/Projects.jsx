@@ -162,7 +162,7 @@ const ProjectCard = ({ p }) => {
           />
           
           {/* Premium Gradient Overlay */}
-          <div className="absolute inset-0 bg-linear-to-t from-[#0a0a14] via-[#0a0a14]/20 to-transparent opacity-0 lg:opacity-90 z-10 transition-opacity duration-500 group-hover:opacity-100"></div>
+          <div className="absolute inset-0 bg-linear-to-t from-[#0a0a14] via-[#0a0a14]/20 to-transparent opacity-90 z-10 transition-opacity duration-500 group-hover:opacity-100"></div>
           
           {/* Hover Glassmorphism & Actions */}
           <div className="absolute inset-0 z-20 flex items-center justify-center gap-4  opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-500 backdrop-blur-[6px] bg-black/40">
