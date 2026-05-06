@@ -1,32 +1,52 @@
 import { motion } from 'framer-motion';
-
+import ecommerce from "../assets/ecommerce.png"
+import resturant from "../assets/resturant.png"
+import watch from "../assets/watch.png"
 const projects = [
   {
     tag: 'React',
     tagStyle: 'bg-[rgba(97,218,251,0.15)] text-[#61dafb] border-[#61dafb]/30',
-    title: 'E-Commerce Dashboard',
+    title: 'E-Commerce ',
     desc: 'React দিয়ে তৈরি full-featured admin dashboard। Charts, data tables, এবং responsive layout সহ।',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
-    githubLink: '#',
-    liveLink: '#',
+    image: ecommerce,
+    githubLink: 'https://github.com/Jamil-coder360/E-commerce',
+    liveLink: 'https://e-commerce-five-orpin-12.vercel.app/',
   },
   {
     tag: 'HTML/CSS/JS',
     tagStyle: 'bg-[rgba(255,120,50,0.15)] text-[#ff7832] border-[#ff7832]/30',
-    title: 'Portfolio Website',
+    title: 'Cheffest Resturant',
     desc: 'Pure HTML, CSS ও Vanilla JS দিয়ে তৈরি responsive portfolio site। Dark mode support সহ।',
-    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80',
-    githubLink: '#',
-    liveLink: '#',
+    image: resturant,
+    githubLink: 'https://github.com/Jamil-coder360/Cheffest-Rseturent',
+    liveLink: 'https://jamil-coder360.github.io/Cheffest-Rseturent/',
   },
   {
     tag: 'Vue.js',
     tagStyle: 'bg-[rgba(66,184,131,0.15)] text-[#42b883] border-[#42b883]/30',
-    title: 'Task Manager App',
+    title: 'Cassi Watch',
     desc: 'Vue.js দিয়ে তৈরি drag-and-drop task management application। Local storage integration সহ।',
-    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80',
-    githubLink: '#',
-    liveLink: '#',
+    image: watch,
+    githubLink: 'https://github.com/Jamil-coder360/Watch-Store',
+    liveLink: 'https://watch-store-virid.vercel.app/',
+  },
+  {
+    tag: 'Vue.js',
+    tagStyle: 'bg-[rgba(66,184,131,0.15)] text-[#42b883] border-[#42b883]/30',
+    title: 'Cassi Watch',
+    desc: 'Vue.js দিয়ে তৈরি drag-and-drop task management application। Local storage integration সহ।',
+    image: watch,
+    githubLink: 'https://github.com/Jamil-coder360/Watch-Store',
+    liveLink: 'https://watch-store-virid.vercel.app/',
+  },
+  {
+    tag: 'Vue.js',
+    tagStyle: 'bg-[rgba(66,184,131,0.15)] text-[#42b883] border-[#42b883]/30',
+    title: 'Cassi Watch',
+    desc: 'Vue.js দিয়ে তৈরি drag-and-drop task management application। Local storage integration সহ।',
+    image: watch,
+    githubLink: 'https://github.com/Jamil-coder360/Watch-Store',
+    liveLink: 'https://watch-store-virid.vercel.app/',
   },
 ];
 
