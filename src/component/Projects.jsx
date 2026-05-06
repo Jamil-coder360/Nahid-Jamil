@@ -165,7 +165,7 @@ const ProjectCard = ({ p }) => {
           <div className="absolute inset-0 bg-linear-to-t from-[#0a0a14] via-[#0a0a14]/20 to-transparent opacity-90 z-10 transition-opacity duration-500 group-hover:opacity-100"></div>
           
           {/* Hover Glassmorphism & Actions */}
-          <div className="absolute inset-0 z-20 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-500 backdrop-blur-[6px] bg-black/40">
+          <div className="absolute inset-0 z-20 flex items-center justify-center gap-4  opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-500 backdrop-blur-[6px] bg-black/40">
             <motion.a 
               href={p.githubLink} 
               whileHover={{ scale: 1.15, rotate: -5, translateZ: "40px" }}
@@ -218,7 +218,7 @@ const ProjectCard = ({ p }) => {
 
       {/* Background Interactive Glow */}
       <motion.div 
-        className="absolute inset-0 bg-gradient-radial from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-500"
+        className="absolute inset-0 bg-gradient-radial from-emerald-500/5 to-transparent  opacity-100 lg:opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-500"
         style={{
           background: "radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(16,185,129,0.15) 0%, transparent 60%)"
         }}
