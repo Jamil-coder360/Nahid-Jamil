@@ -110,8 +110,11 @@ export default function Hero() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <motion.span
+            <motion.a
               className="absolute inset-0 bg-emerald-400 opacity-0"
+                href="/Jamil.pdf"
+   target="_blank"
+  rel="noreferrer"
               whileHover={{ opacity: 0.1 }}
             />
             Resume দেখুন
