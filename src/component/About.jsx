@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import jamilImage from '../assets/jamil.png';
 
 const textVariants = {
   hidden: { opacity: 0, x: -50 },
@@ -68,10 +69,15 @@ export default function About() {
             whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, type: 'spring', stiffness: 80, damping: 20 }}
-            className="relative h-72 rounded-2xl overflow-hidden bg-gradient-to-br from-emerald-400/10 to-purple-400/10 border border-white/10"
+            className="relative h-72 rounded-2xl overflow-hidden bg-linear-to-br from-emerald-400/10 to-purple-400/10 border border-white/10"
           >
+            <img
+              src={jamilImage}
+              alt="Jamil"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-emerald-400/5 via-transparent to-purple-400/5"
+              className="absolute inset-0 bg-linear-to-r from-emerald-900/50 via-transparent to-purple-900/80 z-100"
               animate={{
                 x: [0, 100, 0],
                 opacity: [0, 1, 0],
