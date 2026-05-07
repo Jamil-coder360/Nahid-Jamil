@@ -1,22 +1,22 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-const links = ['About', 'Skills', 'Projects', 'Education', 'Contact'];
+const links = ["About", "Skills", "Projects", "Education", "Contact"];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('');
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = links.map(link => link.toLowerCase());
+      const sections = links.map((link) => link.toLowerCase());
       const scrollPosition = window.scrollY + 100;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -28,15 +28,15 @@ export default function Navbar() {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     handleScroll(); // Initial check
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
     setMenuOpen(false);
   };
@@ -45,21 +45,32 @@ export default function Navbar() {
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4 transition-all duration-300 ${
         scrolled
-          ? 'bg-[rgba(10,10,20,0.95)] backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/20'
-          : 'bg-transparent'
+          ? "bg-[rgba(10,10,20,0.95)] backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/20"
+          : "bg-transparent"
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <motion.span
+      {/* <motion.span
         className="font-syne font-bold text-lg tracking-tight cursor-pointer"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       >
         Nahid Jamil
-      </motion.span>
+      </motion.span> */}
+
+      <motion.p
+        className="font-syne font-bold text-lg tracking-tight cursor-pointer select-none"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      >
+        <span className="text-emerald-400 font-light">&lt;</span>
+        <span className="text-white mx-1">Nahid Jamil</span>
+        <span className="text-emerald-400 font-light">/&gt;</span>
+      </motion.p>
 
       {/* Desktop links */}
       <ul className="hidden md:flex gap-8">
@@ -77,7 +88,9 @@ export default function Navbar() {
               <motion.a
                 href={`#${sectionId}`}
                 className={`relative text-sm transition-colors duration-200 ${
-                  isActive ? 'text-emerald-400' : 'text-white/50 hover:text-white'
+                  isActive
+                    ? "text-emerald-400"
+                    : "text-white/50 hover:text-white"
                 }`}
                 whileHover={{ scale: 1.05 }}
                 onClick={(e) => {
@@ -90,7 +103,7 @@ export default function Navbar() {
                   <motion.div
                     className="absolute -bottom-1 left-0 right-0 h-0.5 bg-emerald-400 rounded-full"
                     layoutId="activeIndicator"
-                    transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   />
                 )}
               </motion.a>
@@ -107,7 +120,11 @@ export default function Navbar() {
       >
         <motion.span
           className="block w-5 h-0.5 bg-white transition-all"
-          animate={menuOpen ? { rotate: 45, translateY: 8 } : { rotate: 0, translateY: 0 }}
+          animate={
+            menuOpen
+              ? { rotate: 45, translateY: 8 }
+              : { rotate: 0, translateY: 0 }
+          }
         ></motion.span>
         <motion.span
           className="block w-5 h-0.5 bg-white transition-all"
@@ -115,7 +132,11 @@ export default function Navbar() {
         ></motion.span>
         <motion.span
           className="block w-5 h-0.5 bg-white transition-all"
-          animate={menuOpen ? { rotate: -45, translateY: -8 } : { rotate: 0, translateY: 0 }}
+          animate={
+            menuOpen
+              ? { rotate: -45, translateY: -8 }
+              : { rotate: 0, translateY: 0 }
+          }
         ></motion.span>
       </motion.button>
 
@@ -127,7 +148,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
           >
             {links.map((l, index) => {
               const sectionId = l.toLowerCase();
@@ -138,7 +159,9 @@ export default function Navbar() {
                   key={l}
                   href={`#${sectionId}`}
                   className={`block px-6 py-4 text-sm border-b border-white/5 transition-colors ${
-                    isActive ? 'text-emerald-400 bg-emerald-400/5' : 'text-white/60 hover:text-white hover:bg-white/5'
+                    isActive
+                      ? "text-emerald-400 bg-emerald-400/5"
+                      : "text-white/60 hover:text-white hover:bg-white/5"
                   }`}
                   onClick={(e) => {
                     e.preventDefault();
