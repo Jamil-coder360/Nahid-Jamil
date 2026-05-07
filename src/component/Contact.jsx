@@ -47,6 +47,20 @@ export default function Contact() {
 const sendEmail = (e) => {
   e.preventDefault();
 
+const formData = new FormData(e.target);
+const data = {};
+
+for(let [key,value] of formData){
+  data[key] = value.trim()
+};
+console.log(data);
+if (Object.values(data).some((value) => value.trim() === "")) {
+  toast.warning("Please fill all fields");
+  return;
+}
+
+
+
   emailjs
     .sendForm(
       "service_4r19exx",
@@ -62,6 +76,8 @@ const sendEmail = (e) => {
       console.error(error);
       toast.warning("Failed to send message.");
     });
+
+
 };
   // Predefined delays for animation staggering
   const contactDelays = [0, 0.5, 1, 1.5];
